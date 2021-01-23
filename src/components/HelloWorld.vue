@@ -2,6 +2,8 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
    <div id= "road">
+    <div class="line" v-for="k  in  [1,2,3,4,5,6,7]" :key="k">
+    </div>
   </div>
 </div>
 </template>
@@ -21,6 +23,13 @@ export default {
   width: 100% ;
   margin: 7em auto;
   height: 400px;
-  background-color: gray;
+  background-color: #363636;
+}
+.line{
+ width: 10%;
+ margin:190px 2%;
+ display: inline-block;
+ height: 10px;
+ background-color:white;
 }
 </style>
