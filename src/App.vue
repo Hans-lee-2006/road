@@ -10,7 +10,8 @@
 
 <style>
 html,body{
-  padding: 0
+  padding: 0;
+  background-color: #0ac2ff;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
