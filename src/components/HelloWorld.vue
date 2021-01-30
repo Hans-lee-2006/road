@@ -4,11 +4,11 @@
    <div id= "road">
     <img class = "car" src = "/img/car.png" :style="{right: r + 'px'}">
 
-    <img class = "car" src = "/img/car.png" :style="{right: r + 400 + 'px'}">
+    <img class = "car" src = "/img/car.png" :style="{right: r + dr + 'px'}">
 
     <img class = "car2" src = "/img/car2.png" :style="{left: l + 'px'}">
 
-    <img class = "car2" src = "/img/car2.png" :style="{left: l + 400 + 'px'}">
+    <img class = "car2" src = "/img/car2.png" :style="{left: l + dl + 'px'}">
     <div class="line" v-for="k  in  [1,2,3,4,5,6,7]" :key="k">
     </div>
   </div>
@@ -25,6 +25,8 @@ export default {
     return {
       r: 0,
       l: 0,
+      dr: 400,
+      dl: 400
     }
   },
   methods: {
@@ -37,6 +39,8 @@ export default {
       if (this.l >= window.innerWidth + 400) {
         this.l = 0;
       }
+      this.dr += Math.floor(Math.random()*3-1)
+      this.dl += Math.floor(Math.random()*3-1)
     }
   },
   mounted() {
