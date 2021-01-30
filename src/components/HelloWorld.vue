@@ -9,7 +9,7 @@
     <img class = "car2" src = "/img/car2.png" :style="{left: l + 'px'}">
 
     <img class = "car2" src = "/img/car2.png" :style="{left: l + dl + 'px'}">
-    <img class= "human" src = "/img/human.png" :style="{top: t + 'px'}" @click="move(10)">
+    <img class= "human" src = "/img/human.png" :style="{top: t + 'px',left:t2+'vw'}" @click="move(10)">
     <div class="line" v-for="k  in  [1,2,3,4,5,6,7]" :key="k">
     </div>
   </div>
@@ -28,7 +28,8 @@ export default {
       l: 0,
       t: 400,
       dr: 400,
-      dl: 400
+      dl: 400,
+      t2:48
     }
   },
   methods: {
@@ -43,6 +44,10 @@ export default {
       }
       this.dr += Math.floor(Math.random()*3-1)
       this.dl += Math.floor(Math.random()*3-1)
+      if (this.t<=300 && this.t>=100 && this.r>=window.innerWidth/3 && this.r<=window.innerWidth*2/3){
+        alert('你被撞死了')
+        this.t=400
+      }
     },
     move(e) {
       if(e.which == 38) {
@@ -50,6 +55,12 @@ export default {
       }
       if (e.which == 40) {
         this.t += 10
+      }
+      if(e.which == 37) {
+        this.t2 -= 1
+      }
+      if (e.which == 39) {
+        this.t2 += 1
       }
     }
   },
