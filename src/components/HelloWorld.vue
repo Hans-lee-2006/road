@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
    <div id= "road">
-    <img class = "car" src = "/img/car.png">
+    <img class = "car" src = "/img/car.png" :style="{right: r + 'px'}">
     <div class="line" v-for="k  in  [1,2,3,4,5,6,7]" :key="k">
     </div>
   </div>
@@ -14,6 +14,19 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  data() {
+    return {
+      r: 0
+    }
+  },
+  methods: {
+    go() {
+      this.r ++
+    }
+  },
+  mounted() {
+    setInterval(this.go, 25)
   }
 }
 </script>
