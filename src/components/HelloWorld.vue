@@ -44,7 +44,7 @@ export default {
     }
   },
   mounted() {
-    setInterval(this.go, 25)
+    setInterval(this.go, 15)
   }
 }
 </script>
