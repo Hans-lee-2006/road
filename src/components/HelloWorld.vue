@@ -44,7 +44,7 @@ export default {
       }
       this.dr += Math.floor(Math.random()*3-1)
       this.dl += Math.floor(Math.random()*3-1)
-      if (this.t<=300 && this.t>=100 && this.r>=window.innerWidth/3 && this.r<=window.innerWidth*2/3){
+      if (this.t<=300 && this.t>=100 && ((this.r >= window.innerWidth/2 - 150 && this.r <= window.innerWidth/2 + 150) || (this.r + this.dr >= window.innerWidth/2 - 150 && this.r+ this.dr <= window.innerWidth/2 + 150)) ){
         alert('你被撞死了')
         this.t=400
       }
