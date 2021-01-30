@@ -3,6 +3,7 @@
     <h1>{{ msg }}</h1>
    <div id= "road">
     <img class = "car" src = "/img/car.png" :style="{right: r + 'px'}">
+    <img class = "car2" src = "/img/car2.png" :style="{left: l + 'px'}">
     <div class="line" v-for="k  in  [1,2,3,4,5,6,7]" :key="k">
     </div>
   </div>
@@ -17,12 +18,14 @@ export default {
   },
   data() {
     return {
-      r: 0
+      r: 0,
+      l: 0,
     }
   },
   methods: {
     go() {
       this.r ++
+      this.l ++
     }
   },
   mounted() {
@@ -50,5 +53,11 @@ export default {
   position: absolute;
   width: 250px;
   right:0;
+}
+.car2{
+  position: absolute;
+  width: 250px;
+  left:0;
+  top: 280px;
 }
 </style>
