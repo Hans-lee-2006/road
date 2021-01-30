@@ -9,7 +9,7 @@
     <img class = "car2" src = "/img/car2.png" :style="{left: l + 'px'}">
 
     <img class = "car2" src = "/img/car2.png" :style="{left: l + dl + 'px'}">
-    <img class= "human" src = "/img/human.png" :style="{top: t + 'px',left:t2+'vw'}" @click="move(10)">
+    <img class= "human" src = "/img/human2.png" :style="{top: t + 'px',left:t2+'vw'}" @click="move(10)">
     <div class="line" v-for="k  in  [1,2,3,4,5,6,7]" :key="k">
     </div>
   </div>
