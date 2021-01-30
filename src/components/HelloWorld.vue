@@ -22,7 +22,10 @@ export default {
   },
   methods: {
     go() {
-      this.r ++
+      this.r += 1;
+      if (this.r >= window.innerWidth) {
+        this.r = 0;
+      }
     }
   },
   mounted() {
