@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div autofucos = "" class="hello" @keydown="move(10)" tabindex="0">
     <h1>{{ msg }}</h1>
    <div id= "road">
     <img class = "car" src = "/img/car.png" :style="{right: r + 'px'}">
@@ -9,7 +9,7 @@
     <img class = "car2" src = "/img/car2.png" :style="{left: l + 'px'}">
 
     <img class = "car2" src = "/img/car2.png" :style="{left: l + dl + 'px'}">
-    <img class= "human" src = "/img/human.png">
+    <img class= "human" src = "/img/human.png" :style="{top: t + 'px'}" @click="move(10)">
     <div class="line" v-for="k  in  [1,2,3,4,5,6,7]" :key="k">
     </div>
   </div>
@@ -26,6 +26,7 @@ export default {
     return {
       r: 0,
       l: 0,
+      t: 400,
       dr: 400,
       dl: 400
     }
@@ -42,6 +43,9 @@ export default {
       }
       this.dr += Math.floor(Math.random()*3-1)
       this.dl += Math.floor(Math.random()*3-1)
+    },
+    move(k) {
+      this.t -= k
     }
   },
   mounted() {
@@ -52,8 +56,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.hello {
+  width: 100vw;
+  overflow: hidden;
+}
+
 #road {
-  width: 100% ;
+  width: 100%;
+  overflow: hidden;
   margin: 5vh auto;
   height: 400px;
   background-color: #363636;
