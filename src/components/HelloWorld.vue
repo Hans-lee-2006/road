@@ -21,7 +21,7 @@ export default {
 <style scoped>
 #road {
   width: 100% ;
-  margin: 7em auto;
+  margin: 5vh auto;
   height: 400px;
   background-color: #363636;
 }
