@@ -2,6 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
    <div id= "road">
+    <img class = "car" src = "/img/car.png">
     <div class="line" v-for="k  in  [1,2,3,4,5,6,7]" :key="k">
     </div>
   </div>
@@ -31,5 +32,10 @@ export default {
  display: inline-block;
  height: 10px;
  background-color:white;
+}
+.car{
+  position: absolute;
+  width: 250px;
+  right:0;
 }
 </style>
