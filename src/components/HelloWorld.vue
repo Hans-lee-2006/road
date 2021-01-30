@@ -1,5 +1,5 @@
 <template>
-  <div autofucos = "" class="hello" @keydown="move(10)" tabindex="0">
+  <div autofucos = "" class="hello" @keydown="move($event)" tabindex="0">
     <h1>{{ msg }}</h1>
    <div id= "road">
     <img class = "car" src = "/img/car.png" :style="{right: r + 'px'}">
@@ -44,8 +44,13 @@ export default {
       this.dr += Math.floor(Math.random()*3-1)
       this.dl += Math.floor(Math.random()*3-1)
     },
-    move(k) {
-      this.t -= k
+    move(e) {
+      if(e.which == 38) {
+        this.t -= 10
+      }
+      if (e.which == 40) {
+        this.t += 10
+      }
     }
   },
   mounted() {
