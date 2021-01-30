@@ -9,6 +9,7 @@
     <img class = "car2" src = "/img/car2.png" :style="{left: l + 'px'}">
 
     <img class = "car2" src = "/img/car2.png" :style="{left: l + dl + 'px'}">
+    <img class= "human" src = "/img/human.png">
     <div class="line" v-for="k  in  [1,2,3,4,5,6,7]" :key="k">
     </div>
   </div>
@@ -74,5 +75,10 @@ export default {
   width: 250px;
   left:0;
   top: 280px;
+}
+.human{
+  position: absolute;
+  width: 150px;
+  left: 48vw
 }
 </style>
