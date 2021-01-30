@@ -33,10 +33,10 @@ export default {
     go() {
       this.r ++
       this.l ++
-      if (this.r >= window.innerWidth + 400) {
+      if (this.r >= window.innerWidth) {
         this.r = 0;
       }
-      if (this.l >= window.innerWidth + 400) {
+      if (this.l >= window.innerWidth) {
         this.l = 0;
       }
       this.dr += Math.floor(Math.random()*3-1)
