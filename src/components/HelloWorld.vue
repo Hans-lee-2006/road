@@ -26,6 +26,12 @@ export default {
     go() {
       this.r ++
       this.l ++
+      if (this.r >= window.innerWidth) {
+        this.r = 0;
+      }
+      if (this.l >= window.innerWidth) {
+        this.l = 0;
+      }
     }
   },
   mounted() {
