@@ -42,8 +42,8 @@ export default {
       if (this.l >= window.innerWidth) {
         this.l = 0;
       }
-      this.r2 +=3
-      this.l2 +=4
+      this.r2 +=1.25
+      this.l2 +=1.28
       if (this.check()){
         alert('你被撞死了')
         this.t=400
