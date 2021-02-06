@@ -4,11 +4,11 @@
    <div id= "road">
     <img class = "car" src = "/img/car.png" :style="{right: r + 'px'}">
 
-    <img class = "car" src = "/img/car.png" :style="{right: r + dr + 'px'}">
+    <img class = "car" src = "/img/car.png" :style="{right: r2 + 'px'}">
 
     <img class = "car2" src = "/img/car2.png" :style="{left: l + 'px'}">
 
-    <img class = "car2" src = "/img/car2.png" :style="{left: l + dl + 'px'}">
+    <img class = "car2" src = "/img/car2.png" :style="{left: l2 + 'px'}">
     <img class= "human" src = "/img/human2.png" :style="{top: t + 'px',left:t2+'vw'}" @click="move(10)">
     <div class="line" v-for="k  in  [1,2,3,4,5,6,7]" :key="k">
     </div>
@@ -27,8 +27,8 @@ export default {
       r: 0,
       l: 0,
       t: 400,
-      dr: 400,
-      dl: 400,
+      r2: 400,
+      l2: 400,
       t2:48
     }
   },
@@ -37,17 +37,26 @@ export default {
       this.r ++
       this.l ++
       if (this.r >= window.innerWidth) {
-        this.r = -this.dr;
+        this.r = 0;
       }
       if (this.l >= window.innerWidth) {
-        this.l = -this.dl;
+        this.l = 0;
       }
-      this.dr += Math.floor(Math.random()*3-1)
-      this.dl += Math.floor(Math.random()*3-1)
-      if (this.t<=300 && this.t>=100 && ((this.r >= window.innerWidth/2 - 150 && this.r <= window.innerWidth/2 + 150) || (this.r + this.dr >= window.innerWidth/2 - 150 && this.r+ this.dr <= window.innerWidth/2 + 150)) ){
+      this.r2 +=3
+      this.l2 +=4
+      if (this.check()){
         alert('你被撞死了')
         this.t=400
       }
+      if (this.r2 >= window.innerWidth) {
+        this.r2 = 0;
+      }
+      if (this.l2 >= window.innerWidth) {
+        this.l2 = 0;
+      }
+    },
+    check(){
+      return (this.t<=300 && this.t>=100 && ((this.r >= window.innerWidth/2 - 120 && this.r <= window.innerWidth/2 + 120) || (this.r + this.r2 >= window.innerWidth/2 - 100 && this.r+ this.r2 <= window.innerWidth/2 + 100)))
     },
     move(e) {
       if(e.which == 38) {
