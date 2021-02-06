@@ -29,27 +29,31 @@ export default {
       t: 400,
       r2: 400,
       l2: 400,
-      t2: window.innerWidth / 2
+      t2: window.innerWidth / 2,
+      v1:16,
+      v2:1
     }
   },
   methods: {
     go() {
-      this.r ++
-      this.l ++
+      this.r +=this.v1
+      this.l +=this.v1+0.57
       if (this.r >= window.innerWidth) {
         this.r = 0;
+        this.v1=1+Math.random()
       }
       if (this.l >= window.innerWidth) {
         this.l = 0;
       }
-      this.r2 +=1.25
-      this.l2 +=1.28
+      this.r2 +=this.v2
+      this.l2 +=this.v2+1
       if (this.check()){
         alert('你被撞死了')
         this.t=400
       }
       if (this.r2 >= window.innerWidth) {
         this.r2 = 0;
+         this.v2=1+Math.random()
       }
       if (this.l2 >= window.innerWidth) {
         this.l2 = 0;
