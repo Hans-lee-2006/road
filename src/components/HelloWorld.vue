@@ -9,7 +9,7 @@
     <img class = "car2" src = "/img/car2.png" :style="{left: l + 'px'}">
 
     <img class = "car2" src = "/img/car2.png" :style="{left: l2 + 'px'}">
-    <img class= "human" src = "/img/human2.png" :style="{top: t + 'px',left:t2+'vw'}" @click="move(10)">
+    <img class= "human" src = "/img/human2.png" :style="{top: t + 'px',left:t2+'px'}" @click="move(10)">
     <div class="line" v-for="k  in  [1,2,3,4,5,6,7]" :key="k">
     </div>
   </div>
@@ -29,7 +29,7 @@ export default {
       t: 400,
       r2: 400,
       l2: 400,
-      t2:48
+      t2: window.innerWidth / 2
     }
   },
   methods: {
@@ -56,7 +56,7 @@ export default {
       }
     },
     check(){
-      return (this.t<=300 && this.t>=100 && ((this.r >= window.innerWidth/2 - 120 && this.r <= window.innerWidth/2 + 120) || (this.r + this.r2 >= window.innerWidth/2 - 100 && this.r+ this.r2 <= window.innerWidth/2 + 100)))
+      return this.t<=300 && this.t>=100 && ((this.r >= this.t2 - 120 && this.r <= this.t2 + 120) || (this.r2 >= this.t2 - 120 && this.r2 <= this.t2 + 120) || (this.l >= this.t2 - 120 && this.l <= this.t2 + 120) || (this.l2 >= this.t2 - 120 && this.l2 <= this.t2 + 120))
     },
     move(e) {
       if(e.which == 38) {
