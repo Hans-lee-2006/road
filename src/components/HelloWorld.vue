@@ -2,14 +2,14 @@
   <div autofucos = "" class="hello" @keydown="move($event)" tabindex="0">
     <h1>{{ msg }}</h1>
    <div id= "road">
-    <img class = "car" src = "/img/car.png" :style="{right: r + 'px'}">
+    <img id ="c1" class = "car" src = "/img/car.png" :style="{right: r + 'px'}">
 
-    <img class = "car" src = "/img/car.png" :style="{right: r2 + 'px'}">
+    <img id ="c2" class = "car" src = "/img/car.png" :style="{right: r2 + 'px'}">
 
-    <img class = "car2" src = "/img/car2.png" :style="{left: l + 'px'}">
+    <img id ="c3" class = "car2" src = "/img/car2.png" :style="{left: l + 'px'}">
 
-    <img class = "car2" src = "/img/car2.png" :style="{left: l2 + 'px'}">
-    <img class= "human" src = "/img/human2.png" :style="{top: t + 'px',left:t2+'px'}" @click="move(10)">
+    <img id ="c4" class = "car2" src = "/img/car2.png" :style="{left: l2 + 'px'}">
+    <img id ="h" class= "human" src = "/img/human2.png" :style="{top: t + 'px',left:t2+'px'}" @click="move(10)">
     <div class="line" v-for="k  in  [1,2,3,4,5,6,7]" :key="k">
     </div>
   </div>
@@ -59,8 +59,26 @@ export default {
         this.l2 = 0;
       }
     },
+    collide: function (el1, el2) {
+      var rect1 = el1.getBoundingClientRect();
+      var rect2 = el2.getBoundingClientRect();
+
+      return !(
+        rect1.top > rect2.bottom - 150 ||
+        rect1.right < rect2.left + 50 ||
+        rect1.bottom < rect2.top + 150 ||
+        rect1.left > rect2.right - 50
+      );
+    },
     check(){
-      return this.t<=300 && this.t>=100 && ((this.r >= this.t2 - 120 && this.r <= this.t2 + 120) || (this.r2 >= this.t2 - 120 && this.r2 <= this.t2 + 120) || (this.l >= this.t2 - 120 && this.l <= this.t2 + 120) || (this.l2 >= this.t2 - 120 && this.l2 <= this.t2 + 120))
+      var ans = false
+      var h = document.getElementById('h')
+      var c1 = document.getElementById('c1')
+      var c2 = document.getElementById('c2')
+      var c3 = document.getElementById('c3')
+      var c4 = document.getElementById('c4')
+      ans = this.collide(h, c1) || this.collide(h, c2) || this.collide(h, c3) || this.collide(h, c4)
+      return ans
     },
     move(e) {
       if(e.which == 38) {
