@@ -12,7 +12,8 @@
     <div class="line" v-for="k  in  [1,2,3,4,5,6,7]" :key="k">
     </div>
   </div>
-  <div v-else>
+  <div v-else id="start">
+    <h1>端火鍋模擬器</h1>
     <button @click="start = true">start</button>
   </div>
 </div>
@@ -145,5 +146,13 @@ export default {
 
 button {
   font-size: 66px;
+}
+#start{
+  width: 100%;
+  height: 100vh;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; 
 }
 </style>
