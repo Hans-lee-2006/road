@@ -1,7 +1,6 @@
 <template>
   <div autofucos = "" class="hello" @keydown="move($event)" tabindex="0">
-    <h1>{{ msg }}</h1>
-   <div id= "road">
+   <div id= "road" v-if="start">
     <img id ="c1" class = "car" src = "/img/car.png" :style="{right: r + 'px'}">
 
     <img id ="c2" class = "car" src = "/img/car.png" :style="{right: r2 + 'px'}">
@@ -12,6 +11,9 @@
     <img id ="h" class= "human" src = "/img/human2.png" :style="{top: t + 'px',left:t2+'px'}" @click="move(10)">
     <div class="line" v-for="k  in  [1,2,3,4,5,6,7]" :key="k">
     </div>
+  </div>
+  <div v-else>
+    <button:"start">
   </div>
 </div>
 </template>
@@ -31,7 +33,8 @@ export default {
       l2: 400,
       t2: window.innerWidth / 2,
       v1:16,
-      v2:1
+      v2:1,
+      start:false
     }
   },
   methods: {
