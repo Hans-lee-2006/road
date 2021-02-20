@@ -13,7 +13,7 @@
     </div>
   </div>
   <div v-else>
-    <button:"start">
+    <button @click="start = true">start</button>
   </div>
 </div>
 </template>
@@ -141,5 +141,9 @@ export default {
   position: absolute;
   width: 150px;
   left: 48vw
+}
+
+button {
+  font-size: 66px;
 }
 </style>
