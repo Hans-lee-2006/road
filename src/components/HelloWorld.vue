@@ -1,14 +1,14 @@
 <template>
   <div autofucos = "" class="hello" @keydown="move($event)" tabindex="0">
    <div id= "road" v-if="start">
-    <img id ="c1" class = "car" src = "/img/car.png" :style="{right: r + 'px'}">
+    <img id ="c1" class = "car" src = "./img/car.png" :style="{right: r + 'px'}">
 
-    <img id ="c2" class = "car" src = "/img/car.png" :style="{right: r2 + 'px'}">
+    <img id ="c2" class = "car" src = "./img/car.png" :style="{right: r2 + 'px'}">
 
-    <img id ="c3" class = "car2" src = "/img/car2.png" :style="{left: l + 'px'}">
+    <img id ="c3" class = "car2" src = "./img/car2.png" :style="{left: l + 'px'}">
 
-    <img id ="c4" class = "car2" src = "/img/car2.png" :style="{left: l2 + 'px'}">
-    <img id ="h" class= "human" src = "/img/human2.png" :style="{top: t + 'px',left:t2+'px'}" @click="move(10)">
+    <img id ="c4" class = "car2" src = "./img/car2.png" :style="{left: l2 + 'px'}">
+    <img id ="h" class= "human" src = "./img/human2.png" :style="{top: t + 'px',left:t2+'px'}" @click="move(10)">
     <div class="line" v-for="k  in  [1,2,3,4,5,6,7]" :key="k">
     </div>
   </div>
