@@ -16,6 +16,10 @@
     <h1>端火鍋模擬器</h1>
     <button @click="start = true">start</button>
   </div>
+  <button class="control" id="up" @click="t -= 10" v-show="start">up</button>
+  <button class="control" id="down" @click="t += 10" v-show="start">down</button>
+  <button class="control" id="left" @click="t2 -= 2" v-show="start">left</button>
+  <button class="control" id="right" @click="t2 += 2" v-show="start">right</button>
 </div>
 </template>
 
@@ -154,5 +158,34 @@ button {
   align-items: center;
   justify-content: center;
   flex-direction: column; 
+}
+@media screen and (min-width: 461px) {
+  .thin-only {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 461px) {
+  .thin-only {
+    display: none !important;
+  }
+}
+.control{
+  position:fixed;
+}
+#up{
+  top: 8em;
+  left:;
+}
+#down{
+ top: 9.2em;
+ left: 11em;
+}
+#left{
+ top: 9em;
+ left: 9.5em;
+}
+#right{
+top: 9em;
+ left: 13.6em;
 }
 </style>
