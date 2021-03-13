@@ -49,11 +49,11 @@ export default {
     go() {
       this.r +=this.v1
       this.l +=this.v1+0.57
-      if (this.r >= window.innerWidth) {
+      if (this.r >= Math.max(window.innerWidth, 400)) {
         this.r = 0;
         this.v1=1+Math.random()
       }
-      if (this.l >= window.innerWidth) {
+      if (this.l >= Math.max(window.innerWidth, 400)) {
         this.l = 0;
       }
       this.r2 +=this.v2
@@ -62,11 +62,11 @@ export default {
         alert('你被撞死了')
         this.t=400
       }
-      if (this.r2 >= window.innerWidth) {
+      if (this.r2 >= Math.max(window.innerWidth, 400)) {
         this.r2 = 0;
          this.v2=1+Math.random()
       }
-      if (this.l2 >= window.innerWidth) {
+      if (this.l2 >= Math.max(window.innerWidth, 400)) {
         this.l2 = 0;
       }
     },
