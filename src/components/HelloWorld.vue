@@ -1,6 +1,6 @@
 <template>
   <div autofucos = "" class="hello" @keydown="move($event)" tabindex="0">
-   <div id= "road" v-if="start">
+   <div id= "road" v-if="start == 1">
     <img id ="c1" class = "car" src = "./img/car.png" :style="{right: r + 'px'}">
 
     <img id ="c2" class = "car" src = "./img/car.png" :style="{right: r2 + 'px'}">
@@ -12,9 +12,12 @@
     <div class="line" v-for="k  in  [1,2,3,4,5,6,7]" :key="k">
     </div>
   </div>
-  <div v-else id="start">
+  <div v-if = "start == 0" id="start">
     <h1>端火鍋模擬器</h1>
-    <button @click="start = true">start</button>
+    <button @click="start = 1">start</button>
+  </div>
+  <div v-if = "start == 2" id="start">
+    <h1>END</h1>
   </div>
   <button class="control" id="up" @click="t -= 10" v-show="start">up</button>
   <button class="control" id="down" @click="t += 10" v-show="start">down</button>
@@ -58,6 +61,7 @@ export default {
       if (this.check()){
         alert('你被撞死了')
         this.t=400
+        this.start = 2
       }
       if (this.r2 >= window.innerWidth) {
         this.r2 = 0;
