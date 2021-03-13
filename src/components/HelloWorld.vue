@@ -19,7 +19,7 @@
   <div v-if = "start == 2" id="start">
     <h1>恭喜你成功過關</h1>
   </div>
-  <button class="control" id="up" @click="t -= 10" v-show="start">up</button>
+  <button class="control" id="up" @click="t -= 30" v-show="start">up</button>
   <button class="control" id="down" @click="t += 10" v-show="start">down</button>
   <button class="control" id="left" @click="t2 -= 2" v-show="start">left</button>
   <button class="control" id="right" @click="t2 += 2" v-show="start">right</button>
@@ -49,11 +49,11 @@ export default {
     go() {
       this.r +=this.v1
       this.l +=this.v1+0.57
-      if (this.r >= Math.max(window.innerWidth, 400)) {
+      if (this.r >= Math.max(window.innerWidth, 800)) {
         this.r = 0;
         this.v1=1+Math.random()
       }
-      if (this.l >= Math.max(window.innerWidth, 400)) {
+      if (this.l >= Math.max(window.innerWidth, 800)) {
         this.l = 0;
       }
       this.r2 +=this.v2
@@ -62,11 +62,11 @@ export default {
         alert('你被撞死了')
         this.t=400
       }
-      if (this.r2 >= Math.max(window.innerWidth, 400)) {
+      if (this.r2 >= Math.max(window.innerWidth, 800)) {
         this.r2 = 0;
          this.v2=1+Math.random()
       }
-      if (this.l2 >= Math.max(window.innerWidth, 400)) {
+      if (this.l2 >= Math.max(window.innerWidth, 800)) {
         this.l2 = 0;
       }
     },
