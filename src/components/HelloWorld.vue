@@ -17,7 +17,7 @@
     <button @click="start = 1">start</button>
   </div>
   <div v-if = "start == 2" id="start">
-    <h1>END</h1>
+    <h1>恭喜你成功過關</h1>
   </div>
   <button class="control" id="up" @click="t -= 10" v-show="start">up</button>
   <button class="control" id="down" @click="t += 10" v-show="start">down</button>
@@ -61,7 +61,6 @@ export default {
       if (this.check()){
         alert('你被撞死了')
         this.t=400
-        this.start = 2
       }
       if (this.r2 >= window.innerWidth) {
         this.r2 = 0;
@@ -104,6 +103,9 @@ export default {
       }
       if (e.which == 39) {
         this.t2 += 1
+      }
+      if (this.t <=20){
+        this.start=2
       }
     }
   },
