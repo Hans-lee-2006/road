@@ -18,11 +18,12 @@
   </div>
   <div v-if = "start == 2" id="start">
     <h1>恭喜你成功過關</h1>
+    <a id="rickroll" href="https://youtu.be/dQw4w9WgXcQ">重新開始</a>
   </div>
-  <button class="control" id="up" @click="t -= 30; maybe()" v-show="start">up</button>
-  <button class="control" id="down" @click="t += 10; maybe()" v-show="start">down</button>
-  <button class="control" id="left" @click="t2 -= 2; maybe()" v-show="start">left</button>
-  <button class="control" id="right" @click="t2 += 2; maybe()" v-show="start">right</button>
+  <button class="control" id="up" @click="t -= 30; maybe()" v-show="start==1">up</button>
+  <button class="control" id="down" @click="t += 10; maybe()" v-show="start==1">down</button>
+  <button class="control" id="left" @click="t2 -= 2; maybe()" v-show="start==1">left</button>
+  <button class="control" id="right" @click="t2 += 2; maybe()" v-show="start==1">right</button>
 </div>
 </template>
 
@@ -196,5 +197,13 @@ button {
 #right{
 top: 9em;
  left: 13.6em;
+}
+#rickroll{
+  border: 1px solid black;
+  background-color: #ccc;
+  padding: 5px;
+  color: black;
+  text-decoration: none;
+  font-size: 25px
 }
 </style>
