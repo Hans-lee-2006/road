@@ -72,15 +72,19 @@ export default {
       }
     },
     collide: function (el1, el2) {
-      var rect1 = el1.getBoundingClientRect();
-      var rect2 = el2.getBoundingClientRect();
+      if (el1 !== null && el2 !== null) {
+        var rect1 = el1.getBoundingClientRect() || {};
+        var rect2 = el2.getBoundingClientRect() || {};
 
-      return !(
-        rect1.top > rect2.bottom - 150 ||
-        rect1.right < rect2.left + 50 ||
-        rect1.bottom < rect2.top + 150 ||
-        rect1.left > rect2.right - 50
-      );
+        return !(
+          rect1.top > rect2.bottom - 150 ||
+          rect1.right < rect2.left + 50 ||
+          rect1.bottom < rect2.top + 150 ||
+          rect1.left > rect2.right - 50
+        )
+      } else {
+        return false
+      }
     },
     check(){
       var ans = false
@@ -179,24 +183,26 @@ button {
     display: none !important;
   }
 }
-.control{
-  position:fixed;
-}
+
 #up{
+  position:fixed;
   top: 8em;
-  left:;
+  left: 40vw;
 }
 #down{
- top: 9.2em;
- left: 11em;
+ position:fixed;
+ top: 10em;
+ left: 40vw;
 }
 #left{
+position:fixed;
  top: 9em;
- left: 9.5em;
+ left: 20vw;
 }
 #right{
-top: 9em;
- left: 13.6em;
+ position:fixed;
+ top: 9em;
+ left: 55vw;
 }
 #rickroll{
   border: 1px solid black;
