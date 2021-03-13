@@ -19,10 +19,10 @@
   <div v-if = "start == 2" id="start">
     <h1>恭喜你成功過關</h1>
   </div>
-  <button class="control" id="up" @click="t -= 30" v-show="start">up</button>
-  <button class="control" id="down" @click="t += 10" v-show="start">down</button>
-  <button class="control" id="left" @click="t2 -= 2" v-show="start">left</button>
-  <button class="control" id="right" @click="t2 += 2" v-show="start">right</button>
+  <button class="control" id="up" @click="t -= 30; maybe()" v-show="start">up</button>
+  <button class="control" id="down" @click="t += 10; maybe()" v-show="start">down</button>
+  <button class="control" id="left" @click="t2 -= 2; maybe()" v-show="start">left</button>
+  <button class="control" id="right" @click="t2 += 2; maybe()" v-show="start">right</button>
 </div>
 </template>
 
@@ -104,6 +104,9 @@ export default {
       if (e.which == 39) {
         this.t2 += 1
       }
+      this.maybe()
+    },
+    maybe() {
       if (this.t <=20){
         this.start=2
       }
